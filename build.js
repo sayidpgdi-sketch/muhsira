@@ -15,10 +15,13 @@ function prepareHtml(file, isEntry = false) {
     "$1/Main_screen_image.webp$2"
   );
   if (isEntry) {
+    // Redirect only browsers that explicitly identify as mobile devices.
+    // Do not use viewport width: desktop windows, zoom, and narrow browser panes
+    // must still load the desktop homepage.
     const mobileRedirect = `<script>
 (function () {
-  var mobile = /Android|iPhone|iPod|IEMobile|Opera Mini|Mobile/i.test(navigator.userAgent) ||
-    (window.matchMedia && window.matchMedia("(max-width: 767px)").matches);
+  var ua = navigator.userAgent || "";
+  var mobile = /Android|iPhone|iPod|IEMobile|Opera Mini|Mobile/i.test(ua);
   if (mobile && !sessionStorage.getItem("muhsira-desktop-view")) {
     window.location.replace("/Mobile_screen_main.html");
   }
