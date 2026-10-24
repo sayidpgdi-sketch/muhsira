@@ -4,7 +4,32 @@
       min-height: max(884px, 100dvh);
     }
   </style>
-  </head><body class="bg-surface text-on-surface font-body-md flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl pt-safe shadow-[0_1px_12px_rgba(40,35,31,0.04)]"><div class="h-16 px-gutter-mobile flex items-center justify-between"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none">Muhasira . P</span><span class="font-label-sm text-label-sm text-primary tracking-widest uppercase mt-0.5">Financial Advisory</span></div><div class="flex items-center gap-space-sm"><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VAyOVzekHSh3SJIuGzv0bEb7yXufIq4X5CVfdalgPnTCKrDG6RHop3EsNd8L0PUTh5gkOULjYwea2719AJKIfXT69zjKm2qkQQCcUuEKN4NbM4XTtyF8gkyHfF37D09UgWMZ2TAIPgrb3tICwoExWaZwErkJJER1ChEJGc8NDwG3TjrGtN-wKQ5zt7YFbhL3iPfWxKQ8WIYt5Vrt0BA7wryDahzPENJ19o-84nshdZNDfOLJljFwOl7K7Igyhlqthz0FGdAh45y4s"></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-24 bg-surface"><div class="flex flex-col w-full">
+  <style id="mobile-side-menu-styles">
+  body { padding-bottom: 0 !important; }
+  .mobile-menu-button { width:44px;height:44px;min-width:44px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(76,92,59,.18);border-radius:14px;background:var(--surface,#fffdfa);color:var(--primary,#4c5c3b);cursor:pointer; }
+  .mobile-menu-button .material-symbols-outlined { font-size:25px; }
+  .mobile-menu-backdrop { position:fixed;inset:0;z-index:100;background:rgba(24,25,21,.48);opacity:0;visibility:hidden;transition:opacity .22s ease,visibility .22s ease; }
+  .mobile-menu-backdrop.is-open { opacity:1;visibility:visible; }
+  .mobile-side-menu { position:absolute;top:0;right:0;height:100%;height:100dvh;width:min(86vw,360px);padding:calc(env(safe-area-inset-top,0px) + 18px) 20px calc(env(safe-area-inset-bottom,0px) + 20px);background:var(--surface,#fffdfa);color:var(--on-surface,#24231f);box-shadow:-16px 0 48px rgba(0,0,0,.16);transform:translateX(102%);transition:transform .24s ease;overflow-y:auto;display:flex;flex-direction:column;gap:22px; }
+  .mobile-menu-backdrop.is-open .mobile-side-menu { transform:translateX(0); }
+  .mobile-menu-top { display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:18px;border-bottom:1px solid rgba(36,35,31,.1); }
+  .mobile-menu-links { display:flex;flex-direction:column;gap:8px; }
+  .mobile-menu-links a { display:flex;align-items:center;gap:14px;min-height:52px;padding:12px 14px;border-radius:14px;text-decoration:none;color:inherit;font-weight:600; }
+  .mobile-menu-links a:active,.mobile-menu-links a:hover { background:var(--surface-container,#f2eee5); }
+  .mobile-menu-links .material-symbols-outlined { color:var(--primary,#4c5c3b);font-size:22px; }
+  .mobile-menu-contact { margin-top:auto;border-radius:18px;padding:16px;background:var(--surface-container-low,#f7f6f2); }
+  body.mobile-menu-open { overflow:hidden; }
+  @media(prefers-reduced-motion:reduce){.mobile-menu-backdrop,.mobile-side-menu{transition:none;}}
+</style></head><body class="bg-surface text-on-surface font-body-md flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl pt-safe shadow-[0_1px_12px_rgba(40,35,31,0.04)]" id="mobile-site-header">
+<div class="h-16 px-gutter-mobile flex items-center justify-between">
+<a href="/Mobile_screen_main.html" class="flex flex-col no-underline" aria-label="Muhsira Pananchery home">
+<span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none">Muhsira . P</span>
+<span class="font-label-sm text-label-sm text-primary tracking-widest uppercase mt-0.5">Financial Advisory</span>
+</a>
+<div class="flex items-center gap-space-sm">
+<span class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high" aria-label="Available for opportunities"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span><span class="font-label-sm text-[10px] text-on-surface-variant">Available</span></span>
+<button type="button" id="mobile-menu-open" class="mobile-menu-button" aria-label="Open navigation menu" aria-controls="mobile-side-menu" aria-expanded="false"><span class="material-symbols-outlined" aria-hidden="true">menu</span></button>
+</div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-24 bg-surface"><div class="flex flex-col w-full">
 <!-- Hero Showcase Section -->
 <section class="relative px-margin-mobile pt-space-lg pb-space-xl flex flex-col items-center overflow-hidden">
 <!-- Ambient Warm Vignette Halo -->
@@ -457,6 +482,34 @@
       © 2026 Muhsira Pananchery · Financial Strategy &amp; Controllership
     </p>
 </footer>
-</div></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_16px_rgba(40,35,31,0.04)]" data-active-classes="text-primary font-semibold"><div class="flex justify-around items-center h-16 px-gutter-mobile"><a aria-current="page" class="flex flex-col items-center justify-center gap-space-xs min-w-[44px] min-h-[44px] transition-colors text-primary font-semibold" data-path="home" href="#"><span class="material-symbols-outlined text-[22px]">cottage</span><span class="font-label-sm text-label-sm tracking-normal">Home</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[44px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="projects" href="/project_overview_mobile.html"><span class="material-symbols-outlined text-[22px]">query_stats</span><span class="font-label-sm text-label-sm tracking-normal">Projects</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[44px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="experience" href="#"><span class="material-symbols-outlined text-[22px]">history_edu</span><span class="font-label-sm text-label-sm tracking-normal">Experience</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[44px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="#"><span class="material-symbols-outlined text-[22px]">mail</span><span class="font-label-sm text-label-sm tracking-normal">Contact</span></a></div></nav>
+</div></main>
 
-</body></html>
+<div class="mobile-menu-backdrop" id="mobile-menu-backdrop" aria-hidden="true">
+<aside class="mobile-side-menu" id="mobile-side-menu" role="dialog" aria-modal="true" aria-label="Site navigation">
+<div class="mobile-menu-top"><div><div class="font-title-md font-semibold">Muhsira Pananchery</div><div class="font-label-sm text-on-surface-variant">Financial Advisory</div></div><button type="button" class="mobile-menu-button" id="mobile-menu-close" aria-label="Close navigation menu"><span class="material-symbols-outlined" aria-hidden="true">close</span></button></div>
+<nav class="mobile-menu-links" aria-label="Main navigation">
+<a href="/Mobile_screen_main.html"><span class="material-symbols-outlined" aria-hidden="true">home</span><span>Home</span></a>
+<a href="/project_overview_mobile.html"><span class="material-symbols-outlined" aria-hidden="true">query_stats</span><span>Research Project</span></a>
+<a href="#featured-projects"><span class="material-symbols-outlined" aria-hidden="true">work_history</span><span>Featured Work</span></a>
+<a href="#research-focus"><span class="material-symbols-outlined" aria-hidden="true">school</span><span>Research Focus</span></a>
+<a href="#contact-inquiry"><span class="material-symbols-outlined" aria-hidden="true">mail</span><span>Contact</span></a>
+</nav>
+<div class="mobile-menu-contact"><div class="font-label-sm text-on-surface-variant mb-2">GET IN TOUCH</div><a href="https://wa.me/918075522811" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 font-semibold no-underline"><span class="material-symbols-outlined" aria-hidden="true">chat</span>WhatsApp</a><a href="mailto:muhsiraayyub@gmail.com" class="flex items-center gap-2 mt-3 font-semibold no-underline"><span class="material-symbols-outlined" aria-hidden="true">mail</span>Email</a></div>
+</aside></div>
+<script id="mobile-side-menu-script">
+(function(){
+  var backdrop=document.getElementById("mobile-menu-backdrop");
+  var panel=document.getElementById("mobile-side-menu");
+  var openButton=document.getElementById("mobile-menu-open");
+  var closeButton=document.getElementById("mobile-menu-close");
+  if(!backdrop||!panel||!openButton||!closeButton)return;
+  var previousFocus=null;
+  function openMenu(){previousFocus=document.activeElement;backdrop.classList.add("is-open");backdrop.setAttribute("aria-hidden","false");openButton.setAttribute("aria-expanded","true");document.body.classList.add("mobile-menu-open");closeButton.focus();}
+  function closeMenu(){backdrop.classList.remove("is-open");backdrop.setAttribute("aria-hidden","true");openButton.setAttribute("aria-expanded","false");document.body.classList.remove("mobile-menu-open");if(previousFocus&&previousFocus.focus)previousFocus.focus();}
+  openButton.addEventListener("click",openMenu);
+  closeButton.addEventListener("click",closeMenu);
+  backdrop.addEventListener("click",function(event){if(event.target===backdrop)closeMenu();});
+  panel.querySelectorAll("a").forEach(function(link){link.addEventListener("click",function(){if(link.getAttribute("href")&&link.getAttribute("href").charAt(0)==="#"){closeMenu();}});});
+  document.addEventListener("keydown",function(event){if(event.key==="Escape"&&backdrop.classList.contains("is-open"))closeMenu();});
+})();
+</script></body></html>
