@@ -73,6 +73,8 @@ function prepareHtml(file, isEntry = false) {
 
   fs.writeFileSync(path.join(out, "index.html"), prepareHtml("desktop_screen_main.html", true));
   fs.writeFileSync(path.join(out, "Mobile_screen_main.html"), prepareHtml("Mobile_screen_main.html"));
+  fs.writeFileSync(path.join(out, "project_overview.html"), prepareHtml("project_overview.html"));
+  fs.writeFileSync(path.join(out, "project_overview_mobile.html"), prepareHtml("project_overview_mobile.html"));
   fs.writeFileSync(path.join(out, "desktop_screen_main.html"), prepareHtml("desktop_screen_main.html"));
   fs.copyFileSync(path.join(root, "forms_mobile.html"), path.join(out, "forms_mobile.html"));
   fs.copyFileSync(path.join(root, "shared-layout.css"), path.join(out, "shared-layout.css"));
