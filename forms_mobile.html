@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100%;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "secondary-container": "#ebe1da", "outline": "#827569", "on-error-container": "#93000a", "on-background": "#1c1c18", "surface-tint": "#7d5627", "on-tertiary-fixed-variant": "#604013", "secondary-fixed": "#ebe1da", "on-surface-variant": "#50453a", "background": "#fcf9f3", "surface-variant": "#e5e2dc", "primary-container": "#966c3b", "on-primary-container": "#fffbff", "inverse-on-surface": "#f3f0ea", "tertiary": "#785526", "surface-container-high": "#ebe8e2", "on-secondary-fixed": "#1f1b17", "on-tertiary": "#ffffff", "surface-dim": "#dcdad4", "error-container": "#ffdad6", "primary-fixed-dim": "#f1bd84", "surface-container-highest": "#e5e2dc", "on-primary-fixed": "#2b1700", "on-primary-fixed-variant": "#623f11", "tertiary-fixed": "#ffddb6", "on-tertiary-container": "#fffbff", "tertiary-fixed-dim": "#edbe85", "surface-container-low": "#f6f3ed", "on-secondary-container": "#6a635e", "on-surface": "#1c1c18", "outline-variant": "#d4c4b6", "surface-bright": "#fcf9f3", "on-secondary": "#ffffff", "on-error": "#ffffff", "surface-container-lowest": "#ffffff", "surface-container": "#f0eee8", "secondary-fixed-dim": "#cec5be", "error": "#ba1a1a", "inverse-primary": "#f1bd84", "on-tertiary-fixed": "#2a1800", "on-primary": "#ffffff", "inverse-surface": "#31312d", "on-secondary-fixed-variant": "#4c4641", "primary": "#7b5425", "primary-fixed": "#ffddba", "tertiary-container": "#936d3c", "surface": "#fcf9f3", "secondary": "#645d58" }, "borderRadius": { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" }, "spacing": { "space-lg": "1.5rem", "space-xs": "0.25rem", "margin": "4rem", "margin-mobile": "1.25rem", "space-md": "1rem", "space-xl": "2.5rem", "gutter": "1.5rem", "gutter-mobile": "1rem", "space-sm": "0.5rem" }, "fontFamily": { "label-sm": ["Plus Jakarta Sans"], "headline-md": ["Playfair Display"], "headline-lg-mobile": ["Playfair Display"], "headline-sm": ["Playfair Display"], "body-md": ["Plus Jakarta Sans"], "headline-lg": ["Playfair Display"], "body-lg": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "headline-xl-mobile": ["Playfair Display"], "headline-xl": ["Playfair Display"], "label-md": ["Plus Jakarta Sans"] }, "fontSize": { "label-sm": ["0.75rem", { "lineHeight": "1.2", "letterSpacing": "0.08em", "fontWeight": "600" }], "headline-md": ["2rem", { "lineHeight": "1.3", "fontWeight": "500" }], "headline-lg-mobile": ["2rem", { "lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "500" }], "headline-sm": ["1.375rem", { "lineHeight": "1.4", "fontWeight": "600" }], "body-md": ["1rem", { "lineHeight": "1.65", "fontWeight": "400" }], "headline-lg": ["3rem", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "500" }], "body-lg": ["1.125rem", { "lineHeight": "1.7", "fontWeight": "400" }], "title-md": ["1.125rem", { "lineHeight": "1.5", "letterSpacing": "-0.005em", "fontWeight": "600" }], "body-sm": ["0.875rem", { "lineHeight": "1.6", "fontWeight": "400" }], "headline-xl-mobile": ["2.75rem", { "lineHeight": "1.15", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-xl": ["4.5rem", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }], "label-md": ["0.875rem", { "lineHeight": "1.2", "letterSpacing": "0.04em", "fontWeight": "600" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-full"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.03)]"><div class="h-20 px-margin-mobile flex flex-col justify-center"><div class="flex items-center justify-between gap-space-xs"><div class="flex items-center gap-space-xs min-w-0"><button aria-label="Go back" class="flex items-center justify-center w-11 h-11 rounded-full text-on-surface hover:bg-surface-container active:bg-surface-container-high transition-colors min-w-[44px] min-h-[44px]" onclick="history.back()"><span class="material-symbols-outlined text-xl">arrow_back_ios_new</span></button><div class="flex flex-col min-w-0"><span class="text-label-sm font-label-sm text-primary uppercase tracking-wider truncate">Academic Survey</span><h1 class="text-title-md font-title-md text-on-surface truncate">Survey Questionnaire</h1></div></div><div class="flex items-center gap-space-xs flex-shrink-0"><button aria-label="Switch language" class="flex items-center justify-center h-8 px-space-sm rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm min-w-[44px] min-h-[44px]" type="button"><span class="font-semibold text-primary">ML</span><span class="mx-0.5 text-outline-variant">/</span><span>EN</span></button><div class="relative flex items-center justify-center min-w-[44px] min-h-[44px]"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary-fixed" src="https://lh3.googleusercontent.com/aida/AEtjO1VAyOVzekHSh3SJIuGzv0bEb7yXufIq4X5CVfdalgPnTCKrDG6RHop3EsNd8L0PUTh5gkOULjYwea2719AJKIfXT69zjKm2qkQQCcUuEKN4NbM4XTtyF8gkyHfF37D09UgWMZ2TAIPgrb3tICwoExWaZwErkJJER1ChEJGc8NDwG3TjrGtN-wKQ5zt7YFbhL3iPfWxKQ8WIYt5Vrt0BA7wryDahzPENJ19o-84nshdZNDfOLJljFwOl7K7Igyhlqthz0FGdAh45y4s"/></div></div></div><div class="w-full bg-surface-variant h-1 rounded-full mt-1.5 overflow-hidden"><div class="bg-primary h-full rounded-full transition-all duration-300 w-3/5"></div></div></div></header><main class="flex flex-col relative w-full pt-20 pb-28 px-margin-mobile bg-surface min-h-screen"><div class="flex flex-col w-full pb-8">
+<!-- Top Bilingual Switcher Pill Navigation -->
+<div class="flex items-center justify-between bg-surface-container-low p-1.5 rounded-full shadow-sm mb-4">
+<div class="flex items-center gap-1.5 w-full">
+<button class="lang-toggle flex-1 py-1.5 px-2 rounded-full bg-primary text-on-primary font-label-sm text-label-sm shadow-sm transition-all flex items-center justify-center gap-1" data-lang-mode="both" type="button">
+<span class="material-symbols-outlined text-sm">tune</span>
+<span>Both / രണ്ടും</span>
+</button>
+<button class="lang-toggle flex-1 py-1.5 px-2 rounded-full text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container transition-all flex items-center justify-center" data-lang-mode="ml" type="button">
+<span>മലയാളം</span>
+</button>
+<button class="lang-toggle flex-1 py-1.5 px-2 rounded-full text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container transition-all flex items-center justify-center" data-lang-mode="en" type="button">
+<span>English</span>
+</button>
+</div>
+</div>
+<!-- Academic Research Meta Header Card -->
+<section class="bg-surface-container-lowest rounded-lg p-space-md shadow-sm mb-4 relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-28 h-28 bg-primary/5 rounded-full pointer-events-none"></div>
+<div class="flex items-center gap-2 mb-2">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed text-label-sm font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+        IGNOU M.Com Academic Project
+      </span>
+<span class="text-label-sm font-label-sm text-primary uppercase">Field Survey</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface leading-snug mb-1 lang-en">
+      A Study on the Impact of Paid Social Media Advertising on Small-Scale Businesses in Malappuram District
+    </h2>
+<p class="font-title-md text-body-md text-primary font-medium leading-relaxed mb-3 lang-ml">
+      മലപ്പുറം ജില്ലയിലെ ചെറുകിട സംരംഭങ്ങളിൽ പെയ്ഡ് സോഷ്യൽ മീഡിയ പരസ്യങ്ങളുടെ സ്വാധീനം: ഒരു സമഗ്ര പഠനം
+    </p>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-3 pt-2 text-label-sm font-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary">person</span>
+        Muhsira Pananchery
+      </span>
+<span>•</span>
+<span>Enrolment: <strong class="text-on-surface">MCOM-2024</strong></span>
+<span>•</span>
+<span>RC Vatakara (14)</span>
+</div>
+</section>
+<!-- Visual Survey Step Progress & Indicator -->
+<div class="bg-surface-container-low rounded-lg p-3 mb-4 shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-on-primary text-label-sm font-label-sm font-bold">1</span>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold block">Section 1 of 4: Business Profile</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant lang-ml">വിഭാഗം 1: സംരംഭക വിവരങ്ങൾ</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-bold">25% Done</span>
+</div>
+<div class="w-full bg-surface-variant h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full transition-all duration-300" style="width: 25%"></div>
+</div>
+</div>
+<!-- Academic Confidentiality Guarantee -->
+<div class="flex items-start gap-3 p-space-md rounded-lg bg-surface-container-low mb-6 shadow-sm">
+<div class="w-9 h-9 rounded-full bg-primary-fixed flex items-center justify-center flex-shrink-0 text-on-primary-fixed">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div class="min-w-0 flex-1">
+<div class="flex items-center gap-1.5 mb-0.5">
+<h3 class="font-title-md text-label-md text-on-surface font-semibold">Academic Confidentiality Guarantee</h3>
+<span class="text-label-sm font-label-sm text-primary font-medium lang-ml">(സുരക്ഷിത ഉറപ്പ്)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+        ഈ സർവേ വഴി ശേഖരിക്കുന്ന വിവരങ്ങൾ കേവലം അക്കാദമിക് ഗവേഷണ ആവശ്യങ്ങൾക്കായി മാത്രം ഉപയോഗിക്കുന്നതും അതീവ രഹസ്യമായി സൂക്ഷിക്കുന്നതുമാണ്.
+        <span class="block mt-1 font-body-sm text-body-sm text-on-surface-variant/90 lang-en">Responses are strictly confidential, aggregated for academic research under IGNOU ethical guidelines.</span>
+</p>
+</div>
+</div>
+<!-- ============================================== -->
+<!-- SECTION A: BUSINESS PROFILE                   -->
+<!-- ============================================== -->
+<section class="space-y-4 mb-8">
+<div class="flex items-center justify-between pb-1">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Section A: സംരംഭക വിവരങ്ങൾ</h3>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-2.5 py-1 rounded-full">Profile</span>
+</div>
+<!-- Question 1: Enterprise Name -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm">
+<label class="block mb-2">
+<span class="font-title-md text-title-md text-on-surface font-semibold block">1. വ്യാപാര സ്ഥാപനത്തിന്റെ പേര്</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant lang-en">Name of Enterprise (Optional / നിർബന്ധമില്ല)</span>
+</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low text-on-surface px-4 py-3 rounded-full font-body-md text-body-md placeholder:text-outline/70 focus:outline-none focus:bg-surface-container transition-colors" placeholder="ഉദാ: Al-Noor Supermarket, Tirur" type="text"/>
+<span class="material-symbols-outlined absolute right-3.5 top-3 text-outline/60 text-lg">storefront</span>
+</div>
+</div>
+<!-- Question 2: Business Sector -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm">
+<div class="mb-3">
+<div class="flex items-baseline gap-1">
+<span class="font-title-md text-title-md text-on-surface font-semibold">2. വ്യാപാര മേഖല</span>
+<span class="text-error font-bold">*</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant lang-en">Select Business Sector</span>
+</div>
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Sector Option 1 -->
+<label class="relative flex flex-col p-3 rounded-DEFAULT bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer">
+<input class="peer sr-only" name="sector" type="radio" value="retail"/>
+<div class="w-full h-full flex flex-col justify-between">
+<span class="material-symbols-outlined text-primary mb-2 text-2xl peer-checked:text-on-primary">checkroom</span>
+<div>
+<p class="font-title-md text-label-md text-on-surface font-semibold leading-tight mb-0.5">റീട്ടെയിൽ &amp; തുണി</p>
+<p class="font-body-sm text-label-sm text-on-surface-variant leading-tight lang-en">Retail &amp; Textiles</p>
+</div>
+</div>
+<div class="absolute inset-0 rounded-DEFAULT peer-checked:bg-primary peer-checked:text-on-primary p-3 flex flex-col justify-between pointer-events-none opacity-0 peer-checked:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-primary mb-2 text-2xl">check_circle</span>
+<div>
+<p class="font-title-md text-label-md text-on-primary font-semibold leading-tight mb-0.5">റീട്ടെയിൽ &amp; തുണി</p>
+<p class="font-body-sm text-label-sm text-on-primary/90 leading-tight">Retail &amp; Textiles</p>
+</div>
+</div>
+</label>
+<!-- Sector Option 2 -->
+<label class="relative flex flex-col p-3 rounded-DEFAULT bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer">
+<input class="peer sr-only" name="sector" type="radio" value="hospitality"/>
+<div class="w-full h-full flex flex-col justify-between">
+<span class="material-symbols-outlined text-primary mb-2 text-2xl">restaurant</span>
+<div>
+<p class="font-title-md text-label-md text-on-surface font-semibold leading-tight mb-0.5">ഭക്ഷണം &amp; കഫേ</p>
+<p class="font-body-sm text-label-sm text-on-surface-variant leading-tight lang-en">Dining &amp; Hospitality</p>
+</div>
+</div>
+<div class="absolute inset-0 rounded-DEFAULT peer-checked:bg-primary peer-checked:text-on-primary p-3 flex flex-col justify-between pointer-events-none opacity-0 peer-checked:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-primary mb-2 text-2xl">check_circle</span>
+<div>
+<p class="font-title-md text-label-md text-on-primary font-semibold leading-tight mb-0.5">ഭക്ഷണം &amp; കഫേ</p>
+<p class="font-body-sm text-label-sm text-on-primary/90 leading-tight">Dining &amp; Hospitality</p>
+</div>
+</div>
+</label>
+<!-- Sector Option 3 -->
+<label class="relative flex flex-col p-3 rounded-DEFAULT bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer">
+<input class="peer sr-only" name="sector" type="radio" value="fmcg"/>
+<div class="w-full h-full flex flex-col justify-between">
+<span class="material-symbols-outlined text-primary mb-2 text-2xl">shopping_cart</span>
+<div>
+<p class="font-title-md text-label-md text-on-surface font-semibold leading-tight mb-0.5">പലവ്യഞ്ജനം FMCG</p>
+<p class="font-body-sm text-label-sm text-on-surface-variant leading-tight lang-en">Grocery &amp; Provisions</p>
+</div>
+</div>
+<div class="absolute inset-0 rounded-DEFAULT peer-checked:bg-primary peer-checked:text-on-primary p-3 flex flex-col justify-between pointer-events-none opacity-0 peer-checked:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-primary mb-2 text-2xl">check_circle</span>
+<div>
+<p class="font-title-md text-label-md text-on-primary font-semibold leading-tight mb-0.5">പലവ്യഞ്ജനം FMCG</p>
+<p class="font-body-sm text-label-sm text-on-primary/90 leading-tight">Grocery &amp; Provisions</p>
+</div>
+</div>
+</label>
+<!-- Sector Option 4 -->
+<label class="relative flex flex-col p-3 rounded-DEFAULT bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer">
+<input checked="" class="peer sr-only" name="sector" type="radio" value="electronics"/>
+<div class="w-full h-full flex flex-col justify-between">
+<span class="material-symbols-outlined text-primary mb-2 text-2xl">devices</span>
+<div>
+<p class="font-title-md text-label-md text-on-surface font-semibold leading-tight mb-0.5">മൊബൈൽ &amp; ഗാഡ്ജറ്റ്സ്</p>
+<p class="font-body-sm text-label-sm text-on-surface-variant leading-tight lang-en">Electronics &amp; Mobiles</p>
+</div>
+</div>
+<div class="absolute inset-0 rounded-DEFAULT peer-checked:bg-primary peer-checked:text-on-primary p-3 flex flex-col justify-between pointer-events-none opacity-0 peer-checked:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-primary mb-2 text-2xl">check_circle</span>
+<div>
+<p class="font-title-md text-label-md text-on-primary font-semibold leading-tight mb-0.5">മൊബൈൽ &amp; ഗാഡ്ജറ്റ്സ്</p>
+<p class="font-body-sm text-label-sm text-on-primary/90 leading-tight">Electronics &amp; Mobiles</p>
+</div>
+</div>
+</label>
+<!-- Sector Option 5 -->
+<label class="relative flex flex-col p-3 rounded-DEFAULT bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer">
+<input class="peer sr-only" name="sector" type="radio" value="healthcare"/>
+<div class="w-full h-full flex flex-col justify-between">
+<span class="material-symbols-outlined text-primary mb-2 text-2xl">spa</span>
+<div>
+<p class="font-title-md text-label-md text-on-surface font-semibold leading-tight mb-0.5">ആരോഗ്യം ആയുർവേദം</p>
+<p class="font-body-sm text-label-sm text-on-surface-variant leading-tight lang-en">Health &amp; Wellness</p>
+</div>
+</div>
+<div class="absolute inset-0 rounded-DEFAULT peer-checked:bg-primary peer-checked:text-on-primary p-3 flex flex-col justify-between pointer-events-none opacity-0 peer-checked:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-primary mb-2 text-2xl">check_circle</span>
+<div>
+<p class="font-title-md text-label-md text-on-primary font-semibold leading-tight mb-0.5">ആരോഗ്യം ആയുർവേദം</p>
+<p class="font-body-sm text-label-sm text-on-primary/90 leading-tight">Health &amp; Wellness</p>
+</div>
+</div>
+</label>
+<!-- Sector Option 6 -->
+<label class="relative flex flex-col p-3 rounded-DEFAULT bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer">
+<input class="peer sr-only" name="sector" type="radio" value="services"/>
+<div class="w-full h-full flex flex-col justify-between">
+<span class="material-symbols-outlined text-primary mb-2 text-2xl">home_repair_service</span>
+<div>
+<p class="font-title-md text-label-md text-on-surface font-semibold leading-tight mb-0.5">മറ്റ് സേവനങ്ങൾ</p>
+<p class="font-body-sm text-label-sm text-on-surface-variant leading-tight lang-en">Other Services</p>
+</div>
+</div>
+<div class="absolute inset-0 rounded-DEFAULT peer-checked:bg-primary peer-checked:text-on-primary p-3 flex flex-col justify-between pointer-events-none opacity-0 peer-checked:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-primary mb-2 text-2xl">check_circle</span>
+<div>
+<p class="font-title-md text-label-md text-on-primary font-semibold leading-tight mb-0.5">മറ്റ് സേവനങ്ങൾ</p>
+<p class="font-body-sm text-label-sm text-on-primary/90 leading-tight">Other Services</p>
+</div>
+</div>
+</label>
+</div>
+</div>
+<!-- Question 3: Taluk Location Chips -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm">
+<div class="mb-3">
+<div class="flex items-baseline gap-1">
+<span class="font-title-md text-title-md text-on-surface font-semibold">3. സ്ഥാപനം സ്ഥിതി ചെയ്യുന്ന താലൂക്ക്</span>
+<span class="text-error font-bold">*</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant lang-en">Taluk Location in Malappuram</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<button class="taluk-chip py-2 px-3.5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm transition-all" data-taluk="tirur" type="button">
+          തിരൂർ (Tirur)
+        </button>
+<button class="taluk-chip py-2 px-3.5 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container font-label-sm text-label-sm transition-all" data-taluk="ernad" type="button">
+          ഏറനാട് / മഞ്ചേരി (Ernad)
+        </button>
+<button class="taluk-chip py-2 px-3.5 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container font-label-sm text-label-sm transition-all" data-taluk="perinthalmanna" type="button">
+          പെരിന്തൽമണ്ണ (Perinthalmanna)
+        </button>
+<button class="taluk-chip py-2 px-3.5 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container font-label-sm text-label-sm transition-all" data-taluk="tirurangadi" type="button">
+          തിരൂരങ്ങാടി (Tirurangadi)
+        </button>
+<button class="taluk-chip py-2 px-3.5 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container font-label-sm text-label-sm transition-all" data-taluk="ponnani" type="button">
+          പൊന്നാനി (Ponnani)
+        </button>
+<button class="taluk-chip py-2 px-3.5 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container font-label-sm text-label-sm transition-all" data-taluk="nilambur" type="button">
+          നിലമ്പൂർ (Nilambur)
+        </button>
+<button class="taluk-chip py-2 px-3.5 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container font-label-sm text-label-sm transition-all" data-taluk="kondotty" type="button">
+          കൊണ്ടോട്ടി (Kondotty)
+        </button>
+</div>
+</div>
+<!-- Question 4 & 5: Compact Side-by-Side or Stacked Metrics -->
+<div class="grid grid-cols-1 gap-4">
+<!-- Years in Business -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm">
+<div class="mb-2.5">
+<div class="flex items-baseline gap-1">
+<span class="font-title-md text-title-md text-on-surface font-semibold">4. പ്രവർത്തനപരിചയം</span>
+<span class="text-error font-bold">*</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant lang-en">Years in Business</span>
+</div>
+<div class="grid grid-cols-4 gap-2">
+<label class="cursor-pointer">
+<input class="peer sr-only" name="experience" type="radio" value="under_1"/>
+<div class="py-2.5 px-1 text-center rounded-DEFAULT bg-surface-container-low font-label-sm text-label-sm text-on-surface-variant peer-checked:bg-primary peer-checked:text-on-primary transition-colors">
+              &lt; 1 Yr
+            </div>
+</label>
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="experience" type="radio" value="1_3"/>
+<div class="py-2.5 px-1 text-center rounded-DEFAULT bg-surface-container-low font-label-sm text-label-sm text-on-surface-variant peer-checked:bg-primary peer-checked:text-on-primary transition-colors">
+              1-3 Yrs
+            </div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="experience" type="radio" value="3_5"/>
+<div class="py-2.5 px-1 text-center rounded-DEFAULT bg-surface-container-low font-label-sm text-label-sm text-on-surface-variant peer-checked:bg-primary peer-checked:text-on-primary transition-colors">
+              3-5 Yrs
+            </div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="experience" type="radio" value="5_plus"/>
+<div class="py-2.5 px-1 text-center rounded-DEFAULT bg-surface-container-low font-label-sm text-label-sm text-on-surface-variant peer-checked:bg-primary peer-checked:text-on-primary transition-colors">
+              5+ Yrs
+            </div>
+</label>
+</div>
+</div>
+<!-- Active Employees -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm">
+<div class="mb-2.5">
+<div class="flex items-baseline gap-1">
+<span class="font-title-md text-title-md text-on-surface font-semibold">5. ജീവനക്കാരുടെ എണ്ണം</span>
+<span class="text-error font-bold">*</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant lang-en">Number of Active Employees</span>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<label class="cursor-pointer">
+<input class="peer sr-only" name="staff" type="radio" value="1_3"/>
+<div class="py-2.5 px-2 text-center rounded-DEFAULT bg-surface-container-low font-label-sm text-label-sm text-on-surface-variant peer-checked:bg-primary peer-checked:text-on-primary transition-colors">
+              1-3 പേർ
+            </div>
+</label>
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="staff" type="radio" value="4_10"/>
+<div class="py-2.5 px-2 text-center rounded-DEFAULT bg-surface-container-low font-label-sm text-label-sm text-on-surface-variant peer-checked:bg-primary peer-checked:text-on-primary transition-colors">
+              4-10 പേർ
+            </div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="staff" type="radio" value="10_plus"/>
+<div class="py-2.5 px-2 text-center rounded-DEFAULT bg-surface-container-low font-label-sm text-label-sm text-on-surface-variant peer-checked:bg-primary peer-checked:text-on-primary transition-colors">
+              10+ പേർ
+            </div>
+</label>
+</div>
+</div>
+</div>
+</section>
+<!-- ============================================== -->
+<!-- SECTION B: SOCIAL MEDIA ADVERTISING PRACTICE  -->
+<!-- ============================================== -->
+<section class="space-y-4 mb-8">
+<div class="flex items-center justify-between pb-1">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Section B: പെയ്ഡ് പരസ്യ രീതികൾ</h3>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-2.5 py-1 rounded-full">Ads Practice</span>
+</div>
+<!-- Question 6: Paid Ads Habit -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm">
+<div class="mb-3">
+<div class="flex items-baseline gap-1">
+<span class="font-title-md text-title-md text-on-surface font-semibold">6. സോഷ്യൽ മീഡിയ പരസ്യങ്ങൾ (Boosts/Ads) നൽകാറുണ്ടോ?</span>
+<span class="text-error font-bold">*</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant lang-en">Does your business run Paid Social Media Ads?</span>
+</div>
+<div class="space-y-2">
+<label class="flex items-center gap-3 p-3 rounded-DEFAULT bg-surface-container-low has-[:checked]:bg-secondary-container transition-colors cursor-pointer">
+<input checked="" class="w-4 h-4 text-primary accent-primary" name="ad_frequency" type="radio" value="regular"/>
+<div>
+<p class="font-title-md text-body-md text-on-surface font-medium leading-snug">അതെ, സ്ഥിരമായി ചെയ്യുന്നു</p>
+<p class="font-body-sm text-label-sm text-on-surface-variant lang-en">Yes, Regular Ongoing Campaigns</p>
+</div>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-DEFAULT bg-surface-container-low has-[:checked]:bg-secondary-container transition-colors cursor-pointer">
+<input class="w-4 h-4 text-primary accent-primary" name="ad_frequency" type="radio" value="seasonal"/>
+<div>
+<p class="font-title-md text-body-md text-on-surface font-medium leading-snug">അതെ, സീസണൽ ഓഫറുകൾക്ക് മാത്രം</p>
+<p class="font-body-sm text-label-sm text-on-surface-variant lang-en">Yes, Seasonal / Festive (Onam/Eid/Vishu)</p>
+</div>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-DEFAULT bg-surface-container-low has-[:checked]:bg-secondary-container transition-colors cursor-pointer">
+<input class="w-4 h-4 text-primary accent-primary" name="ad_frequency" type="radio" value="stopped"/>
+<div>
+<p class="font-title-md text-body-md text-on-surface font-medium leading-snug">മുൻപ് ചെയ്തിരുന്നു, ഇപ്പോൾ ഇല്ല</p>
+<p class="font-body-sm text-label-sm text-on-surface-variant lang-en">Previously used, currently stopped</p>
+</div>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-DEFAULT bg-surface-container-low has-[:checked]:bg-secondary-container transition-colors cursor-pointer">
+<input class="w-4 h-4 text-primary accent-primary" name="ad_frequency" type="radio" value="never"/>
+<div>
+<p class="font-title-md text-body-md text-on-surface font-medium leading-snug">ഇല്ല, ഇതുവരെ നൽകിയിട്ടില്ല</p>
+<p class="font-body-sm text-label-sm text-on-surface-variant lang-en">No, Organic posts and WhatsApp status only</p>
+</div>
+</label>
+</div>
+</div>
+<!-- Question 7: Primary Platforms Multi-select -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm">
+<div class="mb-3">
+<span class="font-title-md text-title-md text-on-surface font-semibold block">7. പ്രധാന പ്ലാറ്റ്‌ഫോമുകൾ</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant lang-en">Primary Platforms Utilized (Multi-select)</span>
+</div>
+<div class="grid grid-cols-2 gap-2.5">
+<label class="flex items-center gap-2.5 p-3 rounded-DEFAULT bg-surface-container-low has-[:checked]:bg-primary has-[:checked]:text-on-primary transition-colors cursor-pointer group">
+<input checked="" class="sr-only peer" name="platform" type="checkbox" value="instagram"/>
+<span class="material-symbols-outlined text-primary group-has-[:checked]:text-on-primary text-xl">photo_camera</span>
+<div class="min-w-0">
+<p class="font-title-md text-label-md font-semibold truncate group-has-[:checked]:text-on-primary text-on-surface">ഇൻസ്റ്റാഗ്രാം</p>
+<p class="font-body-sm text-label-sm opacity-80 truncate group-has-[:checked]:text-on-primary text-on-surface-variant">Instagram Ads</p>
+</div>
+</label>
+<label class="flex items-center gap-2.5 p-3 rounded-DEFAULT bg-surface-container-low has-[:checked]:bg-primary has-[:checked]:text-on-primary transition-colors cursor-pointer group">
+<input checked="" class="sr-only peer" name="platform" type="checkbox" value="facebook"/>
+<span class="material-symbols-outlined text-primary group-has-[:checked]:text-on-primary text-xl">public</span>
+<div class="min-w-0">
+<p class="font-title-md text-label-md font-semibold truncate group-has-[:checked]:text-on-primary text-on-surface">ഫേസ്ബുക്ക്</p>
+<p class="font-body-sm text-label-sm opacity-80 truncate group-has-[:checked]:text-on-primary text-on-surface-variant">Facebook Feed</p>
+</div>
+</label>
+<label class="flex items-center gap-2.5 p-3 rounded-DEFAULT bg-surface-container-low has-[:checked]:bg-primary has-[:checked]:text-on-primary transition-colors cursor-pointer group">
+<input checked="" class="sr-only peer" name="platform" type="checkbox" value="whatsapp"/>
+<span class="material-symbols-outlined text-primary group-has-[:checked]:text-on-primary text-xl">chat</span>
+<div class="min-w-0">
+<p class="font-title-md text-label-md font-semibold truncate group-has-[:checked]:text-on-primary text-on-surface">വാട്സാപ്പ്</p>
+<p class="font-body-sm text-label-sm opacity-80 truncate group-has-[:checked]:text-on-primary text-on-surface-variant">Click-to-WA</p>
+</div>
+</label>
+<label class="flex items-center gap-2.5 p-3 rounded-DEFAULT bg-surface-container-low has-[:checked]:bg-primary has-[:checked]:text-on-primary transition-colors cursor-pointer group">
+<input class="sr-only peer" name="platform" type="checkbox" value="google"/>
+<span class="material-symbols-outlined text-primary group-has-[:checked]:text-on-primary text-xl">pin_drop</span>
+<div class="min-w-0">
+<p class="font-title-md text-label-md font-semibold truncate group-has-[:checked]:text-on-primary text-on-surface">ഗൂഗിൾ മാപ്സ്</p>
+<p class="font-body-sm text-label-sm opacity-80 truncate group-has-[:checked]:text-on-primary text-on-surface-variant">Local Ads</p>
+</div>
+</label>
+</div>
+</div>
+<!-- Question 8: Monthly Budget Spending Tier -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm">
+<div class="mb-3">
+<div class="flex items-baseline gap-1">
+<span class="font-title-md text-title-md text-on-surface font-semibold">8. ശരാശരി പ്രതിമാസ പരസ്യച്ചെലവ്</span>
+<span class="text-error font-bold">*</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant lang-en">Average Monthly Ad Expenditure</span>
+</div>
+<div class="grid grid-cols-5 gap-1.5 text-center">
+<label class="cursor-pointer">
+<input class="peer sr-only" name="ad_spend" type="radio" value="under_1k"/>
+<div class="py-2 px-1 rounded-DEFAULT bg-surface-container-low peer-checked:bg-primary peer-checked:text-on-primary text-on-surface transition-colors flex flex-col items-center justify-center">
+<span class="font-title-md text-label-sm font-bold">&lt; ₹1k</span>
+</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="ad_spend" type="radio" value="1k_3k"/>
+<div class="py-2 px-1 rounded-DEFAULT bg-surface-container-low peer-checked:bg-primary peer-checked:text-on-primary text-on-surface transition-colors flex flex-col items-center justify-center">
+<span class="font-title-md text-label-sm font-bold">₹1k-3k</span>
+</div>
+</label>
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="ad_spend" type="radio" value="3k_8k"/>
+<div class="py-2 px-1 rounded-DEFAULT bg-surface-container-low peer-checked:bg-primary peer-checked:text-on-primary text-on-surface transition-colors flex flex-col items-center justify-center">
+<span class="font-title-md text-label-sm font-bold">₹3k-8k</span>
+</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="ad_spend" type="radio" value="8k_15k"/>
+<div class="py-2 px-1 rounded-DEFAULT bg-surface-container-low peer-checked:bg-primary peer-checked:text-on-primary text-on-surface transition-colors flex flex-col items-center justify-center">
+<span class="font-title-md text-label-sm font-bold">₹8k-15k</span>
+</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="ad_spend" type="radio" value="above_15k"/>
+<div class="py-2 px-1 rounded-DEFAULT bg-surface-container-low peer-checked:bg-primary peer-checked:text-on-primary text-on-surface transition-colors flex flex-col items-center justify-center">
+<span class="font-title-md text-label-sm font-bold">&gt; ₹15k</span>
+</div>
+</label>
+</div>
+</div>
+</section>
+<!-- ============================================== -->
+<!-- SECTION C: SALES & BUSINESS IMPACT (LIKERT)   -->
+<!-- ============================================== -->
+<section class="space-y-4 mb-8">
+<div class="flex items-center justify-between pb-1">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Section C: ബിസിനസ്സിലുണ്ടായ മാറ്റങ്ങൾ</h3>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-2.5 py-1 rounded-full">Likert Scale</span>
+</div>
+<!-- Rating Scale Legend Guide -->
+<div class="bg-surface-container-low p-3 rounded-lg flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="font-bold text-error">1</span> = ശക്തമായി വിയോജിക്കുന്നു
+      </span>
+<span class="flex items-center gap-1">
+<span class="font-bold text-primary">5</span> = ശക്തമായി യോജിക്കുന്നു
+      </span>
+</div>
+<!-- Likert Statement 01 -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm">
+<div class="mb-3">
+<p class="font-title-md text-body-md text-on-surface font-semibold mb-0.5">
+          1. പെയ്ഡ് പരസ്യങ്ങൾ വഴി കടയിലേക്കുള്ള നേരിട്ടുള്ള ഉപഭോക്താക്കളുടെ വരവ് (Footfall / Store Inquiries) വർദ്ധിച്ചു.
+        </p>
+<p class="font-body-sm text-body-sm text-on-surface-variant lang-en">
+          Paid social campaigns directly increased walk-ins and local customer footfall.
+        </p>
+</div>
+<div class="grid grid-cols-5 gap-2">
+<label class="cursor-pointer">
+<input class="peer sr-only" name="likert_1" type="radio" value="1"/>
+<div class="h-10 rounded-full bg-surface-container-low peer-checked:bg-primary peer-checked:text-on-primary flex items-center justify-center font-title-md text-label-md font-bold text-on-surface transition-colors">1</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="likert_1" type="radio" value="2"/>
+<div class="h-10 rounded-full bg-surface-container-low peer-checked:bg-primary peer-checked:text-on-primary flex items-center justify-center font-title-md text-label-md font-bold text-on-surface transition-colors">2</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="likert_1" type="radio" value="3"/>
+<div class="h-10 rounded-full bg-surface-container-low peer-checked:bg-primary peer-checked:text-on-primary flex items-center justify-center font-title-md text-label-md font-bold text-on-surface transition-colors">3</div>
+</label>
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="likert_1" type="radio" value="4"/>
+<div class="h-10 rounded-full bg-surface-container-low peer-checked:bg-primary peer-checked:text-on-primary flex items-center justify-center font-title-md text-label-md font-bold text-on-surface transition-colors">4</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="likert_1" type="radio" value="5"/>
+<div class="h-10 rounded-full bg-surface-container-low peer-checked:bg-primary peer-checked:text-on-primary flex items-center justify-center font-title-md text-label-md font-bold text-on-surface transition-colors">5</div>
+</label>
+</div>
+</div>
+<!-- Likert Statement 02 -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm">
+<div class="mb-3">
+<p class="font-title-md text-body-md text-on-surface font-semibold mb-0.5">
+          2. പരസ്യങ്ങൾക്ക് ശേഷം വാട്സാപ്പ് വഴിയുള്ള ഓർഡറുകളിലും അന്വേഷണങ്ങളിലും കാര്യമായ വളർച്ചയുണ്ടായി.
+        </p>
+<p class="font-body-sm text-body-sm text-on-surface-variant lang-en">
+          Noticeable surge in direct WhatsApp messages, digital catalogs, and orders.
+        </p>
+</div>
+<div class="grid grid-cols-5 gap-2">
+<label class="cursor-pointer">
+<input class="peer sr-only" name="likert_2" type="radio" value="1"/>
+<div class="h-10 rounded-full bg-surface-container-low peer-checked:bg-primary peer-checked:text-on-primary flex items-center justify-center font-title-md text-label-md font-bold text-on-surface transition-colors">1</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="likert_2" type="radio" value="2"/>
+<div class="h-10 rounded-full bg-surface-container-low peer-checked:bg-primary peer-checked:text-on-primary flex items-center justify-center font-title-md text-label-md font-bold text-on-surface transition-colors">2</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="likert_2" type="radio" value="3"/>
+<div class="h-10 rounded-full bg-surface-container-low peer-checked:bg-primary peer-checked:text-on-primary flex items-center justify-center font-title-md text-label-md font-bold text-on-surface transition-colors">3</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="likert_2" type="radio" value="4"/>
+<div class="h-10 rounded-full bg-surface-container-low peer-checked:bg-primary peer-checked:text-on-primary flex items-center justify-center font-title-md text-label-md font-bold text-on-surface transition-colors">4</div>
+</label>
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="likert_2" type="radio" value="5"/>
+<div class="h-10 rounded-full bg-surface-container-low peer-checked:bg-primary peer-checked:text-on-primary flex items-center justify-center font-title-md text-label-md font-bold text-on-surface transition-colors">5</div>
+</label>
+</div>
+</div>
+<!-- Likert Statement 03 -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm">
+<div class="mb-3">
+<p class="font-title-md text-body-md text-on-surface font-semibold mb-0.5">
+          3. പരസ്യത്തിനായി ചെലവഴിച്ച തുകയേക്കാൾ കൂടുതൽ ലാഭവും വരുമാനവും (Positive ROAS) നേടാൻ സാധിച്ചു.
+        </p>
+<p class="font-body-sm text-body-sm text-on-surface-variant lang-en">
+          The return on investment outweighs the cumulative ad spend noticeably.
+        </p>
+</div>
+<div class="grid grid-cols-5 gap-2">
+<label class="cursor-pointer">
+<input class="peer sr-only" name="likert_3" type="radio" value="1"/>
+<div class="h-10 rounded-full bg-surface-container-low peer-checked:bg-primary peer-checked:text-on-primary flex items-center justify-center font-title-md text-label-md font-bold text-on-surface transition-colors">1</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="likert_3" type="radio" value="2"/>
+<div class="h-10 rounded-full bg-surface-container-low peer-checked:bg-primary peer-checked:text-on-primary flex items-center justify-center font-title-md text-label-md font-bold text-on-surface transition-colors">2</div>
+</label>
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="likert_3" type="radio" value="3"/>
+<div class="h-10 rounded-full bg-surface-container-low peer-checked:bg-primary peer-checked:text-on-primary flex items-center justify-center font-title-md text-label-md font-bold text-on-surface transition-colors">3</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="likert_3" type="radio" value="4"/>
+<div class="h-10 rounded-full bg-surface-container-low peer-checked:bg-primary peer-checked:text-on-primary flex items-center justify-center font-title-md text-label-md font-bold text-on-surface transition-colors">4</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="likert_3" type="radio" value="5"/>
+<div class="h-10 rounded-full bg-surface-container-low peer-checked:bg-primary peer-checked:text-on-primary flex items-center justify-center font-title-md text-label-md font-bold text-on-surface transition-colors">5</div>
+</label>
+</div>
+</div>
+<!-- Likert Statement 04 -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm">
+<div class="mb-3">
+<p class="font-title-md text-body-md text-on-surface font-semibold mb-0.5">
+          4. പ്രാദേശിക മലയാളത്തിലുള്ള പരസ്യങ്ങൾക്ക് ഇംഗ്ലീഷിനേക്കാൾ മികച്ച കൺവേർഷനും പ്രതികരണവുമാണ് ലഭിക്കുന്നത്.
+        </p>
+<p class="font-body-sm text-body-sm text-on-surface-variant lang-en">
+          Vernacular Malayalam creative copy outperforms standard English advertisements.
+        </p>
+</div>
+<div class="grid grid-cols-5 gap-2">
+<label class="cursor-pointer">
+<input class="peer sr-only" name="likert_4" type="radio" value="1"/>
+<div class="h-10 rounded-full bg-surface-container-low peer-checked:bg-primary peer-checked:text-on-primary flex items-center justify-center font-title-md text-label-md font-bold text-on-surface transition-colors">1</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="likert_4" type="radio" value="2"/>
+<div class="h-10 rounded-full bg-surface-container-low peer-checked:bg-primary peer-checked:text-on-primary flex items-center justify-center font-title-md text-label-md font-bold text-on-surface transition-colors">2</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="likert_4" type="radio" value="3"/>
+<div class="h-10 rounded-full bg-surface-container-low peer-checked:bg-primary peer-checked:text-on-primary flex items-center justify-center font-title-md text-label-md font-bold text-on-surface transition-colors">3</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="likert_4" type="radio" value="4"/>
+<div class="h-10 rounded-full bg-surface-container-low peer-checked:bg-primary peer-checked:text-on-primary flex items-center justify-center font-title-md text-label-md font-bold text-on-surface transition-colors">4</div>
+</label>
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="likert_4" type="radio" value="5"/>
+<div class="h-10 rounded-full bg-surface-container-low peer-checked:bg-primary peer-checked:text-on-primary flex items-center justify-center font-title-md text-label-md font-bold text-on-surface transition-colors">5</div>
+</label>
+</div>
+</div>
+</section>
+<!-- ============================================== -->
+<!-- SECTION D: OPERATIONAL CHALLENGES             -->
+<!-- ============================================== -->
+<section class="space-y-4 mb-6">
+<div class="flex items-center justify-between pb-1">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Section D: വെല്ലുവിളികളും അഭിപ്രായങ്ങളും</h3>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-2.5 py-1 rounded-full">Voice</span>
+</div>
+<!-- Question 9: Key Challenges -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm">
+<div class="mb-3">
+<span class="font-title-md text-title-md text-on-surface font-semibold block">9. സോഷ്യൽ മീഡിയ പരസ്യങ്ങളിൽ താങ്കൾ നേരിടുന്ന പ്രധാന വെല്ലുവിളികൾ</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant lang-en">Key Challenges Encountered (Select all applicable)</span>
+</div>
+<div class="space-y-2">
+<label class="flex items-center gap-3 p-3 rounded-DEFAULT bg-surface-container-low has-[:checked]:bg-secondary-container transition-colors cursor-pointer">
+<input checked="" class="w-4 h-4 text-primary accent-primary" name="challenge" type="checkbox" value="high_cpl"/>
+<div>
+<p class="font-title-md text-body-md text-on-surface font-medium leading-snug">പരസ്യ നിരക്കിലെ വർദ്ധനവ്</p>
+<p class="font-body-sm text-label-sm text-on-surface-variant lang-en">High cost per lead / ad fatigue</p>
+</div>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-DEFAULT bg-surface-container-low has-[:checked]:bg-secondary-container transition-colors cursor-pointer">
+<input checked="" class="w-4 h-4 text-primary accent-primary" name="challenge" type="checkbox" value="technical"/>
+<div>
+<p class="font-title-md text-body-md text-on-surface font-medium leading-snug">സാങ്കേതിക ബുദ്ധിമുട്ടുകൾ</p>
+<p class="font-body-sm text-label-sm text-on-surface-variant lang-en">Technical difficulty in Meta Ad Manager setup</p>
+</div>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-DEFAULT bg-surface-container-low has-[:checked]:bg-secondary-container transition-colors cursor-pointer">
+<input class="w-4 h-4 text-primary accent-primary" name="challenge" type="checkbox" value="fake_leads"/>
+<div>
+<p class="font-title-md text-body-md text-on-surface font-medium leading-snug">വ്യാജ എൻക്വയറികൾ</p>
+<p class="font-body-sm text-label-sm text-on-surface-variant lang-en">Fake clicks &amp; non-converting inquiries</p>
+</div>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-DEFAULT bg-surface-container-low has-[:checked]:bg-secondary-container transition-colors cursor-pointer">
+<input class="w-4 h-4 text-primary accent-primary" name="challenge" type="checkbox" value="payment_issues"/>
+<div>
+<p class="font-title-md text-body-md text-on-surface font-medium leading-snug">പേയ്‌മെന്റ് പ്രശ്നങ്ങൾ</p>
+<p class="font-body-sm text-label-sm text-on-surface-variant lang-en">Card / International / UPI billing issues</p>
+</div>
+</label>
+</div>
+</div>
+<!-- Question 10: Qualitative Insights / Feedback -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm">
+<label class="block mb-2">
+<span class="font-title-md text-title-md text-on-surface font-semibold block">10. താങ്കളുടെ നിർദ്ദേശങ്ങളും അനുഭവങ്ങളും</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant lang-en">Suggestions &amp; Additional Insights</span>
+</label>
+<textarea class="w-full bg-surface-container-low text-on-surface p-3 rounded-DEFAULT font-body-md text-body-md placeholder:text-outline/70 focus:outline-none focus:bg-surface-container transition-colors resize-none" placeholder="മലപ്പുറത്തെ വിപണിയിൽ സോഷ്യൽ മീഡിയ വഴി ബിസിനസ്സ് മെച്ചപ്പെടുത്താൻ താങ്കൾക്ക് തോന്നുന്ന നിർദ്ദേശങ്ങൾ ഇവിടെ രേഖപ്പെടുത്താം..." rows="3"></textarea>
+</div>
+</section>
+<!-- Researcher Academic Footnote -->
+<div class="p-4 rounded-lg bg-surface-container-low flex flex-col items-center text-center">
+<div class="flex items-center gap-1.5 text-primary mb-1">
+<span class="material-symbols-outlined text-sm">school</span>
+<span class="font-label-sm text-label-sm font-semibold tracking-wider uppercase">Indira Gandhi National Open University</span>
+</div>
+<p class="font-body-sm text-label-sm text-on-surface-variant">
+      സ്കൂൾ ഓഫ് മാനേജ്‌മെന്റ് സ്റ്റഡീസ് (SOMS) എം.കോം പ്രൊജക്റ്റ് ഡാറ്റാ ശേഖരണം • മലപ്പുറം ജില്ല 2024-2025
+    </p>
+</div>
+</div>
+<script>
+  (function() {
+    // Interactive Bilingual switcher micro-interaction
+    const toggles = document.querySelectorAll('.lang-toggle');
+    const mlElements = document.querySelectorAll('.lang-ml');
+    const enElements = document.querySelectorAll('.lang-en');
+
+    toggles.forEach(btn => {
+      btn.addEventListener('click', () => {
+        toggles.forEach(b => {
+          b.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+          b.classList.add('text-on-surface-variant');
+        });
+        btn.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+        btn.classList.remove('text-on-surface-variant');
+
+        const mode = btn.dataset.langMode;
+        if (mode === 'both') {
+          mlElements.forEach(el => el.classList.remove('hidden'));
+          enElements.forEach(el => el.classList.remove('hidden'));
+        } else if (mode === 'ml') {
+          mlElements.forEach(el => el.classList.remove('hidden'));
+          enElements.forEach(el => el.classList.add('hidden'));
+        } else if (mode === 'en') {
+          mlElements.forEach(el => el.classList.add('hidden'));
+          enElements.forEach(el => el.classList.remove('hidden'));
+        }
+      });
+    });
+
+    // Interactive taluk chip selection
+    const talukChips = document.querySelectorAll('.taluk-chip');
+    talukChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        talukChips.forEach(c => {
+          c.classList.remove('bg-primary', 'text-on-primary');
+          c.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+        });
+        chip.classList.add('bg-primary', 'text-on-primary');
+        chip.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+      });
+    });
+  })();
+</script></main><div class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-4px_16px_rgba(0,0,0,0.05)]"><div class="h-20 px-margin-mobile flex items-center justify-between gap-space-sm"><button class="flex-1 h-12 rounded-full border border-outline/30 bg-surface text-on-surface font-title-md text-label-md hover:bg-surface-container transition-colors min-h-[44px] flex items-center justify-center gap-1.5" type="button"><span class="material-symbols-outlined text-lg">save</span><span>Save Draft</span></button><button class="flex-1 h-12 rounded-full bg-primary text-on-primary font-title-md text-label-md shadow-sm hover:bg-primary-container transition-colors min-h-[44px] flex items-center justify-center gap-1.5" type="button"><span>Next / Submit</span><span class="material-symbols-outlined text-lg">arrow_forward</span></button></div></div></body></html>
