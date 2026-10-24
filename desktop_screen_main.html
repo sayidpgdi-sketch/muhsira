@@ -63,6 +63,38 @@
     }
   </style>
 <!-- END: Custom CSS -->
+<style id="desktop-web-layout">
+/* Desktop-only presentation. Mobile_screen_main.html is intentionally unchanged. */
+@media (min-width: 900px) {
+  html { scroll-padding-top: 96px; }
+  body { min-width: 900px; }
+  header > div { max-width: 1440px !important; height: 88px !important; padding-left: 48px !important; padding-right: 48px !important; }
+  header nav { gap: 32px !important; }
+  main { width: 100%; }
+  #hero { height: 860px !important; min-height: 860px !important; padding-top: 88px !important; }
+  #hero > div[data-purpose="hero-showcase"] { max-width: 1440px; }
+  #hero [data-purpose="hero-copy"] { max-width: 560px !important; padding-top: 0 !important; }
+  #hero [data-purpose="hero-copy"] h1 { font-size: clamp(42px, 3.4vw, 58px) !important; line-height: 1.08 !important; }
+  #hero [data-purpose="hero-copy"] > p { max-width: 500px !important; font-size: 16px !important; line-height: 1.8 !important; }
+  #hero [data-purpose="hero-portrait"] { min-width: 0; }
+  #hero [data-purpose="hero-portrait"] > div { width: min(42vw, 580px) !important; }
+  #hero [data-purpose="hero-giant-typography"] { margin-top: -120px !important; }
+  #hero [data-purpose="hero-giant-typography"] > div { max-width: 1440px; }
+  #hero [data-purpose="hero-giant-typography"] > div > div { font-size: clamp(105px, 12vw, 180px) !important; white-space: nowrap; }
+  #about, #projects, #experience, #qualifications, #contact { max-width: 1240px !important; margin-left: auto !important; margin-right: auto !important; padding-left: 48px !important; padding-right: 48px !important; }
+  #about, #experience { padding-top: 100px !important; padding-bottom: 100px !important; }
+  #projects, #qualifications { padding-top: 88px !important; padding-bottom: 88px !important; }
+  #services { padding: 88px max(48px, calc((100vw - 1240px) / 2)) !important; }
+  #about > div, #experience > div { gap: 64px !important; }
+  #projects [data-purpose="projects-showcase"], #services [data-purpose="services-grid"] { max-width: 1240px; margin-left: auto; margin-right: auto; }
+  #projects .grid, #services .grid { gap: 24px !important; }
+  #contact { width: 100%; }
+  footer > div { max-width: 1240px; margin: 0 auto; padding-left: 48px !important; padding-right: 48px !important; }
+}
+@media (min-width: 1400px) {
+  #hero [data-purpose="hero-copy"] h1 { font-size: 58px !important; }
+}
+</style>
 </head>
 <body class="bg-[#F7F6F2] text-brand-dark font-sans antialiased selection:bg-[#161616] selection:text-[#F7F6F2] overflow-x-hidden"><div class="fixed inset-0 pointer-events-none z-0 overflow-hidden"><div class="absolute inset-0 backdrop-pattern opacity-70"></div><div class="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-amber-100/30 blur-3xl"></div><div class="absolute top-1/3 -right-48 w-[700px] h-[700px] rounded-full bg-[#e8ede2]/40 blur-3xl"></div><div class="absolute top-2/3 -left-32 w-[550px] h-[550px] rounded-full bg-[#f4eade]/50 blur-3xl"></div></div>
 <!-- BEGIN: NavigationBar -->
