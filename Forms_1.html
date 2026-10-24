@@ -572,22 +572,71 @@
 </div>
 </form>
 <script>
-    document.getElementById('submitBtn').addEventListener('click', function() {
-      const nameInput = document.getElementById('entrepreneur-name');
-      const bizInput = document.getElementById('business-name');
-      if (!nameInput.value.trim() || !bizInput.value.trim()) {
-        alert('Please fill out the Entrepreneur and Business Name before submitting.');
-        nameInput.focus();
-        return;
-      }
-      this.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">refresh</span> Processing Submission...';
-      this.disabled = true;
-      setTimeout(() => {
-        alert('Survey response recorded successfully in empirical database (Malappuram Cohort: 1 of 50). Thank you for your contribution!');
-        this.innerHTML = '<span class="material-symbols-outlined text-[20px]">check_circle</span> Submitted Successfully';
-        this.classList.add('bg-emerald-700');
-      }, 1200);
-    });
+    (() => {
+      const SUPABASE_URL = 'https://ednovxtnveplsoepfewu.supabase.co';
+      const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_3E6ZKS7Vf4xnifUMOrlGhw__GLAQ2x5';
+      const form = document.getElementById('researchForm');
+      const submitBtn = document.getElementById('submitBtn');
+      const identityIds = new Set(['entrepreneur-name', 'business-name']);
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        if (!form.reportValidity()) return;
+
+        const nameInput = document.getElementById('entrepreneur-name');
+        const bizInput = document.getElementById('business-name');
+        if (!nameInput.value.trim() || !bizInput.value.trim()) {
+          alert('Please fill out the Entrepreneur and Business Name before submitting.');
+          (!nameInput.value.trim() ? nameInput : bizInput).focus();
+          return;
+        }
+
+        const originalButtonHtml = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">refresh</span> Saving response...';
+
+        try {
+          const responses = {};
+          for (const [key, value] of new FormData(form).entries()) {
+            const field = Array.from(form.elements).find((element) => element.name === key);
+            if (field && identityIds.has(field.id)) continue;
+            if (Object.prototype.hasOwnProperty.call(responses, key)) {
+              if (!Array.isArray(responses[key])) responses[key] = [responses[key]];
+              responses[key].push(value);
+            } else {
+              responses[key] = value;
+            }
+          }
+
+          const response = await fetch(SUPABASE_URL + '/rest/v1/survey_responses', {
+            method: 'POST',
+            headers: {
+              'apikey': SUPABASE_PUBLISHABLE_KEY,
+              'Authorization': 'Bearer ' + SUPABASE_PUBLISHABLE_KEY,
+              'Content-Type': 'application/json',
+              'Prefer': 'return=minimal'
+            },
+            body: JSON.stringify({ responses, schema_version: 1 })
+          });
+
+          if (!response.ok) {
+            const details = await response.text();
+            throw new Error('Supabase returned ' + response.status + ': ' + details);
+          }
+
+          submitBtn.innerHTML = '<span class="material-symbols-outlined text-[20px]">check_circle</span> Submitted Successfully';
+          submitBtn.classList.add('bg-emerald-700');
+          alert('Your survey response has been saved successfully. Thank you for your contribution!');
+          form.reset();
+        } catch (error) {
+          console.error('Survey submission failed:', error);
+          submitBtn.innerHTML = originalButtonHtml;
+          alert('We could not save your response. Please check your internet connection and try again. Your answers have not been confirmed as saved.');
+        } finally {
+          submitBtn.disabled = false;
+        }
+      });
+    })();
   </script>
 </div></main>
 
