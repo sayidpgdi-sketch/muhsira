@@ -12,7 +12,43 @@
 body{background:var(--bg);color:var(--ink)}.eyebrow{letter-spacing:.16em}.display{font-family:Syne,'Plus Jakarta Sans',sans-serif;letter-spacing:-.045em}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:22px}.section-link{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:9px 14px;font-size:12px;font-weight:700;color:#514f49;background:#fff}.section-link:hover,.section-link.active{background:var(--olive);border-color:var(--olive);color:#fff}.metric{border-left:3px solid var(--olive);padding-left:14px}.objective{display:flex;gap:14px;align-items:flex-start}.objective-no{display:grid;place-items:center;flex:0 0 32px;height:32px;border-radius:50%;background:#e4e9dc;color:var(--olive);font-weight:800;font-size:12px}.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:13px 15px;border-bottom:1px solid var(--line);vertical-align:top}th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:#f5f2eb}
 @media(max-width:767px){.desktop-nav{display:none}.desktop-main{padding-left:18px!important;padding-right:18px!important}.hero-title{font-size:42px!important}}
-</style></head><body class="font-sans antialiased">
+</style>
+<style id="muhsira-canonical-theme">
+:root {
+  --bg: var(--muhsira-bg, #f7f6f2);
+  --surface: var(--muhsira-surface, #fffdfa);
+  --ink: var(--muhsira-ink, #24231f);
+  --muted: var(--muhsira-muted, #686763);
+  --primary: var(--muhsira-primary, #4c5c3b);
+  --accent: var(--muhsira-accent, #a8753c);
+  --line: var(--muhsira-border, rgba(36,35,31,.12));
+  --card-radius: var(--muhsira-radius-lg, 24px);
+}
+html { color-scheme: light; scroll-behavior: smooth; }
+body { background: var(--bg) !important; color: var(--ink) !important; font-family: "Plus Jakarta Sans", sans-serif !important; }
+h1,h2,h3,h4,h5,h6,.display,.side-title { font-family: "Syne","Plus Jakarta Sans",sans-serif !important; }
+p,li,a,button,input,select,textarea,th,td { font-family: "Plus Jakarta Sans",sans-serif; }
+header, .topbar { background-color: color-mix(in srgb, var(--bg) 95%, transparent) !important; border-color: var(--line) !important; }
+header a, .topbar a { text-decoration: none; }
+footer, .footerbar { background: var(--bg) !important; border-color: var(--line) !important; color: var(--muted); }
+.panel,.metric,.tableitem,aside.panel,[class~="rounded-2xl"],[class~="rounded-3xl"] {
+  border-color: var(--line) !important;
+}
+.panel,.tableitem { background-color: var(--surface) !important; border-radius: var(--card-radius) !important; }
+.metric { background-color: var(--surface) !important; border-radius: var(--muhsira-radius-md,16px) !important; }
+.section-link,.iconbtn,.homebtn,.footbtn {
+  border-color: var(--line) !important; font-weight: 700;
+}
+.section-link { border-radius: 999px !important; }
+a:focus-visible,button:focus-visible { outline: 3px solid color-mix(in srgb,var(--primary),white 25%); outline-offset: 3px; }
+@media (max-width:767px) {
+  header, .topbar { backdrop-filter: blur(18px); }
+  .screen { padding-left: var(--muhsira-gutter-mobile,20px); padding-right: var(--muhsira-gutter-mobile,20px); }
+  .panel { padding: 16px; }
+}
+@media (prefers-reduced-motion:reduce) { *,*::before,*::after { transition-duration:.01ms !important; animation-duration:.01ms !important; scroll-behavior:auto !important; } }
+</style>
+</head><body class="font-sans antialiased">
 <header class="sticky top-0 z-30 border-b border-stone-200/80 bg-[#F7F6F2]/95 backdrop-blur-xl"><div class="mx-auto flex max-w-7xl items-center justify-between gap-5 px-8 py-4">
 <a href="/" class="flex items-center gap-3 font-semibold tracking-tight"><span class="grid h-10 w-10 place-items-center rounded-full bg-[#24231f] text-sm font-bold text-white">MP</span><span>Muhsira Pananchery <span class="block text-xs font-medium text-[#686763]">M.Com Research</span></span></a>
 <nav class="desktop-nav flex items-center gap-6 text-sm font-medium text-[#514f49]"><a href="#overview" class="hover:text-black">Overview</a><a href="#objectives" class="hover:text-black">Objectives</a><a href="#methodology" class="hover:text-black">Methodology</a><a href="#analysis" class="hover:text-black">Analysis Plan</a></nav>
