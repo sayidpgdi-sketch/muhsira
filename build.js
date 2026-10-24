@@ -7,17 +7,46 @@ const out = path.join(root, "dist");
 fs.rmSync(out, { recursive: true, force: true });
 fs.mkdirSync(out, { recursive: true });
 
+const desktopStyles = `<style id="muhsira-desktop-layout">
+@media (min-width: 900px) {
+  html, body { width: 100%; min-width: 320px; }
+  body { font-size: 16px; }
+  header > div { max-width: 1240px; margin-inline: auto; padding-inline: 40px !important; height: 88px !important; }
+  header img { width: 44px !important; height: 44px !important; }
+  main { padding-top: 88px !important; padding-bottom: 48px !important; }
+  main > div { width: 100%; }
+  main > div > section { padding-left: max(40px, calc((100vw - 1160px) / 2)) !important; padding-right: max(40px, calc((100vw - 1160px) / 2)) !important; }
+  main > div > section:first-child { min-height: 500px; justify-content: center; align-items: flex-start !important; padding-top: 76px !important; padding-bottom: 76px !important; }
+  main > div > section:first-child > * { max-width: 760px; }
+  main > div > section:first-child h1 { font-size: clamp(3rem, 5vw, 5.25rem) !important; line-height: 1.04 !important; max-width: 850px; }
+  main > div > section:first-child p { max-width: 680px; font-size: 1.125rem !important; line-height: 1.8 !important; }
+  main > div > section:first-child .max-w-xs { max-width: 430px !important; }
+  #featured-projects { padding-top: 76px !important; padding-bottom: 76px !important; }
+  #featured-projects > div:first-child { max-width: 760px; margin-bottom: 36px !important; }
+  #featured-projects > div:nth-child(2) { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px !important; align-items: stretch; }
+  #featured-projects > div:nth-child(2) > div { padding: 32px !important; min-height: 320px; }
+  main > div > section:not(:first-child) { padding-top: 64px !important; padding-bottom: 64px !important; }
+  main > div > section:not(:first-child) > div:first-child { max-width: 900px; }
+  main > div > section:not(:first-child) .grid { gap: 24px !important; }
+  main > div > section:not(:first-child) .flex.flex-col.gap-space-md { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px !important; }
+  main > div > section:not(:first-child) .rounded-3xl { border-radius: 24px !important; }
+  #contact-inquiry { max-width: 100%; }
+  footer { padding-left: max(40px, calc((100vw - 1160px) / 2)) !important; padding-right: max(40px, calc((100vw - 1160px) / 2)) !important; }
+}
+</style>`;
+
 function prepareHtml(file, isEntry = false) {
   let html = fs.readFileSync(path.join(root, file), "utf8");
-  // Use the supplied portfolio image locally instead of a remote portrait URL.
   html = html.replace(
     /(<img[^>]*alt="Muhsira Pananchery - Senior Accountant &amp; Operations Specialist"[^>]*src=")[^"]*(")/i,
     "$1/Main_screen_image.webp$2"
   );
+  // The source desktop and mobile HTML files were identical. Add a desktop-only
+  // responsive layout layer to the desktop entry points; leave the mobile page untouched.
+  if (file === "desktop_screen_main.html") {
+    html = html.replace("</head>", desktopStyles + "</head>");
+  }
   if (isEntry) {
-    // Redirect only browsers that explicitly identify as mobile devices.
-    // Do not use viewport width: desktop windows, zoom, and narrow browser panes
-    // must still load the desktop homepage.
     const mobileRedirect = `<script>
 (function () {
   var ua = navigator.userAgent || "";
@@ -42,7 +71,7 @@ function prepareHtml(file, isEntry = false) {
   fs.writeFileSync(path.join(out, "desktop_screen_main.html"), prepareHtml("desktop_screen_main.html"));
   fs.copyFileSync(path.join(root, "forms_mobile.html"), path.join(out, "forms_mobile.html"));
   fs.writeFileSync(path.join(out, "_headers"), ["/*", "  X-Content-Type-Options: nosniff", "  Referrer-Policy: strict-origin-when-cross-origin", ""].join("\n"));
-  console.log("Built desktop and mobile pages; optimized supplied image to WebP.");
+  console.log("Built desktop layout and mobile page; optimized supplied image to WebP.");
 })().catch((error) => {
   console.error(error);
   process.exit(1);
