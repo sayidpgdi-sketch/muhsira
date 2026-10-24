@@ -37,6 +37,12 @@ const desktopStyles = `<style id="muhsira-desktop-layout">
 
 function prepareHtml(file, isEntry = false) {
   let html = fs.readFileSync(path.join(root, file), "utf8");
+  // Shared design tokens and site configuration are injected into every built page.
+  // This keeps desktop/mobile page layouts distinct while centralizing cross-page rules.
+  const sharedAssets = '<link rel="stylesheet" href="/shared-layout.css" data-muhsira-shared-layout>\\n<script src="/shared-site.js" defer data-muhsira-shared-site></script>\\n';
+  if (!html.includes('data-muhsira-shared-layout')) {
+    html = html.replace(/<\\/head>/i, sharedAssets + '</head>');
+  }
   html = html.replace(
     /(<img[^>]*alt="Muhsira Pananchery - Senior Accountant &amp; Operations Specialist"[^>]*src=")[^"]*(")/i,
     "$1/Main_screen_image.webp$2"
@@ -71,6 +77,8 @@ function prepareHtml(file, isEntry = false) {
   fs.writeFileSync(path.join(out, "project_overview_mobile.html"), prepareHtml("project_overview_mobile.html"));
   fs.writeFileSync(path.join(out, "desktop_screen_main.html"), prepareHtml("desktop_screen_main.html"));
   fs.copyFileSync(path.join(root, "forms_mobile.html"), path.join(out, "forms_mobile.html"));
+  fs.copyFileSync(path.join(root, "shared-layout.css"), path.join(out, "shared-layout.css"));
+  fs.copyFileSync(path.join(root, "shared-site.js"), path.join(out, "shared-site.js"));
   fs.writeFileSync(path.join(out, "_headers"), ["/*", "  X-Content-Type-Options: nosniff", "  Referrer-Policy: strict-origin-when-cross-origin", ""].join("\n"));
   console.log("Built desktop layout and mobile page; optimized supplied image to WebP.");
 })().catch((error) => {
