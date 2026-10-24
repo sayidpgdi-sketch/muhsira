@@ -77,8 +77,8 @@ function prepareHtml(file, isEntry = false) {
   // Replace the legacy mobile overview screen with the newly committed Project overview.html.
   fs.writeFileSync(path.join(out, "project_overview_mobile.html"), prepareHtml("Project overview.html"));
   fs.writeFileSync(path.join(out, "desktop_screen_main.html"), prepareHtml("desktop_screen_main.html"));
-  fs.copyFileSync(path.join(root, "forms_mobile.html"), path.join(out, "forms_mobile.html"));
-  fs.copyFileSync(path.join(root, "Forms_1.html"), path.join(out, "Forms_1.html"));
+  fs.writeFileSync(path.join(out, "forms_mobile.html"), prepareHtml("forms_mobile.html"));
+  fs.writeFileSync(path.join(out, "Forms_1.html"), prepareHtml("Forms_1.html"));
   fs.copyFileSync(path.join(root, "shared-layout.css"), path.join(out, "shared-layout.css"));
   fs.copyFileSync(path.join(root, "shared-site.js"), path.join(out, "shared-site.js"));
   fs.writeFileSync(path.join(out, "_headers"), ["/*", "  X-Content-Type-Options: nosniff", "  Referrer-Policy: strict-origin-when-cross-origin", ""].join("\n"));
