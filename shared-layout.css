@@ -26,6 +26,9 @@ a, button, input, select, textarea { -webkit-tap-highlight-color: transparent; }
 }
 :where(header, footer) a { transition: color var(--muhsira-motion) ease, opacity var(--muhsira-motion) ease; }
 footer { border-color: var(--muhsira-border); }
+[data-muhsira-shared-region="header"] { z-index: 50; }
+[data-muhsira-shared-region="footer"] { border-top-color: var(--muhsira-border); }
+[data-muhsira-shared-region] a { text-underline-offset: .2em; }
 @media (max-width: 767px) {
   html { scroll-padding-top: 5rem; }
   body { overflow-wrap: anywhere; }
