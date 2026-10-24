@@ -12,6 +12,10 @@
     forms: "/forms_mobile.html"
   };
   document.documentElement.dataset.muhsiraLayout = /Mobile|Android|iPhone|iPod/i.test(navigator.userAgent) ? "mobile" : "desktop";
+  // Mark existing page-specific regions so one shared stylesheet can govern them
+  // without replacing navigation, page content, or mobile-specific controls.
+  document.querySelectorAll("header").forEach(function (node) { node.dataset.muhsiraSharedRegion = "header"; });
+  document.querySelectorAll("footer").forEach(function (node) { node.dataset.muhsiraSharedRegion = "footer"; });
   document.querySelectorAll('a[href="mailto:muhsiraayyub@gmail.com"]').forEach(function (link) {
     link.setAttribute("aria-label", link.getAttribute("aria-label") || "Email " + config.name);
   });
