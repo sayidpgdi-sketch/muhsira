@@ -608,6 +608,8 @@
             }
           }
 
+          responses.remarks = document.getElementById('remarks').value.trim();
+
           const response = await fetch(SUPABASE_URL + '/rest/v1/survey_responses', {
             method: 'POST',
             headers: {
