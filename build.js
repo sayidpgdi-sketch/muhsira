@@ -41,7 +41,7 @@ function prepareHtml(file, isEntry = false) {
   // This keeps desktop/mobile page layouts distinct while centralizing cross-page rules.
   const sharedAssets = '<link rel="stylesheet" href="/shared-layout.css" data-muhsira-shared-layout>\n<script src="/shared-site.js" defer data-muhsira-shared-site></script>\n';
   if (!html.includes('data-muhsira-shared-layout')) {
-    html = html.replace(/<\\/head>/i, sharedAssets + '</head>');
+    html = html.replace(/<\/head>/i, sharedAssets + '</head>');
   }
   html = html.replace(
     /(<img[^>]*alt="Muhsira Pananchery - Senior Accountant &amp; Operations Specialist"[^>]*src=")[^"]*(")/i,
