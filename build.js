@@ -11,7 +11,7 @@ function prepareHtml(file, isEntry = false) {
   let html = fs.readFileSync(path.join(root, file), "utf8");
   // Use the supplied portfolio image locally instead of a remote portrait URL.
   html = html.replace(
-    /(<img\\s+alt="Muhsira Pananchery - Senior Accountant &amp; Operations Specialist"[^>]*?src=")[^"]*(")/i,
+    /(<img[^>]*alt="Muhsira Pananchery - Senior Accountant &amp; Operations Specialist"[^>]*src=")[^"]*(")/i,
     "$1/Main_screen_image.webp$2"
   );
   if (isEntry) {
@@ -38,7 +38,7 @@ function prepareHtml(file, isEntry = false) {
   fs.writeFileSync(path.join(out, "Mobile_screen_main.html"), prepareHtml("Mobile_screen_main.html"));
   fs.writeFileSync(path.join(out, "desktop_screen_main.html"), prepareHtml("desktop_screen_main.html"));
   fs.copyFileSync(path.join(root, "forms_mobile.html"), path.join(out, "forms_mobile.html"));
-  fs.writeFileSync(path.join(out, "_headers"), "/*\\n  X-Content-Type-Options: nosniff\\n  Referrer-Policy: strict-origin-when-cross-origin\\n");
+  fs.writeFileSync(path.join(out, "_headers"), ["/*", "  X-Content-Type-Options: nosniff", "  Referrer-Policy: strict-origin-when-cross-origin", ""].join("\n"));
   console.log("Built desktop and mobile pages; optimized supplied image to WebP.");
 })().catch((error) => {
   console.error(error);
