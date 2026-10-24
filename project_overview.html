@@ -48,6 +48,28 @@ a:focus-visible,button:focus-visible { outline: 3px solid color-mix(in srgb,var(
 }
 @media (prefers-reduced-motion:reduce) { *,*::before,*::after { transition-duration:.01ms !important; animation-duration:.01ms !important; scroll-behavior:auto !important; } }
 </style>
+<style id="muhsira-project-page-redesign">
+:root{--project-bg:var(--muhsira-bg,#f7f6f2);--project-surface:var(--muhsira-surface,#fffdfa);--project-ink:var(--muhsira-ink,#24231f);--project-muted:var(--muhsira-muted,#686763);--project-primary:var(--muhsira-primary,#4c5c3b);--project-accent:var(--muhsira-accent,#a8753c);--project-line:var(--muhsira-border,rgba(36,35,31,.12))}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{background:var(--project-bg)!important;color:var(--project-ink)!important;font-family:"Plus Jakarta Sans",sans-serif!important}
+h1,h2,h3,h4,.display{font-family:"Syne","Plus Jakarta Sans",sans-serif!important;letter-spacing:-.04em}
+header{background:color-mix(in srgb,var(--project-bg) 92%,transparent)!important;border-color:var(--project-line)!important;backdrop-filter:blur(18px)}
+header>div{max-width:1240px!important;min-height:88px;padding-inline:clamp(20px,4vw,48px)!important}
+header a{transition:color 180ms ease,background 180ms ease}
+header a .grid{background:var(--project-ink)!important}
+main{max-width:1240px!important;padding-inline:clamp(20px,4vw,48px)!important}
+main section{scroll-margin-top:100px}
+.panel,aside.panel{background:var(--project-surface)!important;border:1px solid var(--project-line)!important;border-radius:24px!important;box-shadow:0 12px 40px rgba(36,35,31,.035)}
+.metric{border-left-color:var(--project-primary)!important}
+.objective-no{background:#e4e9dc!important;color:var(--project-primary)!important}
+.section-link{border-color:var(--project-line)!important;border-radius:999px!important;background:var(--project-surface)!important}
+.section-link:hover,.section-link.active{background:var(--project-primary)!important;border-color:var(--project-primary)!important;color:white!important}
+footer{background:var(--project-bg)!important;border-color:var(--project-line)!important}
+footer>div{max-width:1240px!important;padding-inline:clamp(20px,4vw,48px)!important}
+a:focus-visible,button:focus-visible{outline:3px solid color-mix(in srgb,var(--project-primary),white 25%);outline-offset:3px}
+@media(max-width:767px){header>div{min-height:72px;padding-inline:20px!important}.hero-title{font-size:clamp(36px,9vw,52px)!important}main{padding-inline:20px!important}footer>div{padding-inline:20px!important}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}}
+</style>
 </head><body class="font-sans antialiased">
 <header class="sticky top-0 z-30 border-b border-stone-200/80 bg-[#F7F6F2]/95 backdrop-blur-xl"><div class="mx-auto flex max-w-7xl items-center justify-between gap-5 px-8 py-4">
 <a href="/" class="flex items-center gap-3 font-semibold tracking-tight"><span class="grid h-10 w-10 place-items-center rounded-full bg-[#24231f] text-sm font-bold text-white">MP</span><span>Muhsira Pananchery <span class="block text-xs font-medium text-[#686763]">M.Com Research</span></span></a>
