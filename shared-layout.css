@@ -1,0 +1,36 @@
+/* Muhsira shared responsive design system.
+   Page-specific layouts remain separate; shared tokens keep all pages visually related. */
+:root {
+  --muhsira-bg: #f7f6f2;
+  --muhsira-surface: #fffdfa;
+  --muhsira-ink: #24231f;
+  --muhsira-muted: #686763;
+  --muhsira-primary: #4c5c3b;
+  --muhsira-accent: #a8753c;
+  --muhsira-border: rgba(36, 35, 31, .12);
+  --muhsira-radius-sm: 10px;
+  --muhsira-radius-md: 16px;
+  --muhsira-radius-lg: 24px;
+  --muhsira-content-width: 1160px;
+  --muhsira-gutter-desktop: 40px;
+  --muhsira-gutter-mobile: 20px;
+  --muhsira-motion: 180ms;
+}
+html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+body { color: var(--muhsira-ink); }
+img { max-width: 100%; }
+a, button, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--muhsira-primary), white 25%);
+  outline-offset: 3px;
+}
+:where(header, footer) a { transition: color var(--muhsira-motion) ease, opacity var(--muhsira-motion) ease; }
+footer { border-color: var(--muhsira-border); }
+@media (max-width: 767px) {
+  html { scroll-padding-top: 5rem; }
+  body { overflow-wrap: anywhere; }
+  :where(input, select, textarea) { max-width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
