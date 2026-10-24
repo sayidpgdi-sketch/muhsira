@@ -41,8 +41,7 @@ function prepareHtml(file, isEntry = false) {
     /(<img[^>]*alt="Muhsira Pananchery - Senior Accountant &amp; Operations Specialist"[^>]*src=")[^"]*(")/i,
     "$1/Main_screen_image.webp$2"
   );
-  // The source desktop and mobile HTML files were identical. Add a desktop-only
-  // responsive layout layer to the desktop entry points; leave the mobile page untouched.
+  // Add desktop-only presentation styles to the desktop home page. The mobile home page stays unchanged.
   if (file === "desktop_screen_main.html") {
     html = html.replace("</head>", desktopStyles + "</head>");
   }
@@ -68,6 +67,8 @@ function prepareHtml(file, isEntry = false) {
 
   fs.writeFileSync(path.join(out, "index.html"), prepareHtml("desktop_screen_main.html", true));
   fs.writeFileSync(path.join(out, "Mobile_screen_main.html"), prepareHtml("Mobile_screen_main.html"));
+  fs.writeFileSync(path.join(out, "project_overview.html"), prepareHtml("project_overview.html"));
+  fs.writeFileSync(path.join(out, "project_overview_mobile.html"), prepareHtml("project_overview_mobile.html"));
   fs.writeFileSync(path.join(out, "desktop_screen_main.html"), prepareHtml("desktop_screen_main.html"));
   fs.copyFileSync(path.join(root, "forms_mobile.html"), path.join(out, "forms_mobile.html"));
   fs.writeFileSync(path.join(out, "_headers"), ["/*", "  X-Content-Type-Options: nosniff", "  Referrer-Policy: strict-origin-when-cross-origin", ""].join("\n"));
