@@ -4,7 +4,7 @@
   var config = window.MUHSIRA_SITE = {
     name: "Muhsira Pananchery",
     email: "muhsiraayyub@gmail.com",
-    whatsapp: "https://wa.me/918075522811",
+    instagram: "https://www.instagram.com/_muh_sira_ayyoob_?obrf=MTliOXpqejMwM2Rzeg==",
     homeDesktop: "/",
     homeMobile: "/Mobile_screen_main.html",
     projectDesktop: "/project_overview.html",
